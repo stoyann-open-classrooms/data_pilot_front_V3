@@ -8,8 +8,11 @@ function SuperAdminHome() {
       <h1>Bienvenue sur l'administration de l'application DATA PILOT BY SQUARE</h1>
     </section>
     <section>
-    <Link className="btn" to={'/'}>
+    <Link className="btn" to={'/superAdmin/customers'}>
         Gestion des Clients
+      </Link>
+    <Link className="btn" to={'/superAdmin/users'}>
+        Gestion des Utilisateurs
       </Link>
     
     </section>

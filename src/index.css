@@ -59,7 +59,7 @@ h3 {
   height: auto;
   background-color: #b9a720;
   margin-top: 5rem;
-  color: #333;
+  color: #030e21;
   font-weight: bold;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -85,19 +85,19 @@ h3 {
   align-items: center;
   text-align: center;
   margin-bottom: 30px;
-  color: #333;
+  color: #030e21;
 }
 
 .boxes div {
   padding: 30px;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
-  color: #333;
+  color: #030e21;
 }
 
 .boxes h2 {
   margin-top: 20px;
-  color: #333;
+  color: #030e21;
 }
 
 .boxes a:hover {
@@ -157,7 +157,7 @@ textarea {
 
 .btn-reverse {
   background: #fff;
-  color: #333;
+  color: #030e21;
 }
 
 .btn-block {
@@ -232,12 +232,12 @@ textarea {
   padding: 10px 15px;
   border-radius: 5px;
   text-align: center;
-  color: #333;
-  font-size: 0.6rem;
-  font-weight: 700;
+  color: #030e21;
+  font-size: 0.9rem;
+  font-weight: 800;
   background-color: #b9a720;
   text-transform: uppercase;
-  color: white;
+  color: #030e21;
 }
 
 .status-1-Acceptable {
@@ -313,7 +313,7 @@ textarea {
   border: 1px #b9a720 solid;
   padding: 10px 15px;
   border-radius: 5px;
-  color: #333;
+  color: #030e21;
 }
 
 .note {

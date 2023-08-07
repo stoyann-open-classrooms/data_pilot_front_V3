@@ -8,10 +8,10 @@ function AdminHome() {
       <h1>Bienvenue sur votre espace DATA PILOT BY SQUARE</h1>
     </section>
     <section>
-    <Link className="btn" to={'/'}>
+    <Link className="btn" to={'/admin/users'}>
         Gestion des Utilisateurs
       </Link>
-    <Link className="btn" to={'/'}>
+    <Link className="btn" to={'/admin/tables'}>
         Mes tableaux
       </Link>
     

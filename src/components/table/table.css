@@ -40,14 +40,21 @@ h3 {
   margin-bottom: 10px;
 }
 
-.bigTitleContainer {
-  background-color: #b9a720;
-  color: #030e21;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  margin: 2rem 0;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  border: 3px solid rgb(221, 221, 221);
+  margin: 1rem 0;
 }
-.bigTitleContainer h2 {
-  text-transform: uppercase;
-  font-weight: bolder;
-}/*# sourceMappingURL=bigTitle.css.map */
+
+.table th, .table td {
+  padding: 8px 12px;
+  border: 1px solid #dcdcdc;
+}
+
+.table thead {
+  background-color: #6E3B15;
+  text-align: center;
+}/*# sourceMappingURL=table.css.map */

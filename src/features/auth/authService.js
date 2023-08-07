@@ -10,6 +10,7 @@ const login = async (userData) => {
     localStorage.setItem('userToken', JSON.stringify(response.data.token));
     // Si le rôle est inclus dans la réponse, vous pouvez le stocker comme ceci :
     localStorage.setItem('userRole', JSON.stringify(response.data.role));
+    localStorage.setItem('userCustomer', JSON.stringify(response.data.customer));
   }
 
   return response.data;
