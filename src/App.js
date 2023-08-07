@@ -32,7 +32,7 @@ function App() {
         <div className="container">
           <Header />
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
 
             <Route path="/admin" element={<AdminRoute />}>
               {/* Routes accessibles uniquement aux admins ici */}

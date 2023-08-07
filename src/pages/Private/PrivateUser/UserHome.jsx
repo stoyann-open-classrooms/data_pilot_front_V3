@@ -1,8 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function UserHome() {
   return (
-    <div>UserHome</div>
+    <>
+    <section className="heading">
+      <h1>Bienvenue sur votre espace DATA PILOT BY SQUARE</h1>
+    </section>
+    <section>
+    <Link className="btn" to={'/'}>
+       Acceder a mes Tableaux
+      </Link>
+    
+    </section>
+  </>
   )
 }
 

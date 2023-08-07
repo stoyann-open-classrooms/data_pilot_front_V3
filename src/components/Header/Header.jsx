@@ -15,13 +15,13 @@ function Header() {
   const onLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    navigate("/");
+    navigate("/login");
   };
 
   return (
     <header className="header">
       <div className="logo">
-        <Link className="logo-container" to={"/"}>
+        <Link className="logo-container" to={"/login"}>
           <img className="logo" src={logo} alt="" />
           <h1>DATA PILOT</h1>
         </Link>

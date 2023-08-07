@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { FaSignInAlt } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { login, reset } from "../../features/auth/authSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import homeImg from "../../assets/home-img.jpeg";
 import "./login.css";
 
@@ -27,13 +27,10 @@ function Login() {
     }));
   };
 
+  // Rediriger l'utilisateur s'il est déjà connecté
   useEffect(() => {
-    if (isError) {
-      toast.error(message);
-    }
-    // redirect when logged in
-    if (isSuccess) {
-      switch (user.role) { // Utilisez le rôle de l'utilisateur ici
+    if (user) {
+      switch (user.role) {
         case 'admin':
           navigate('/admin/home');
           break;
@@ -46,26 +43,29 @@ function Login() {
         default:
           toast.error('Role inconnu');
       }
-      toast.success("Vous etes connecter");
     }
-  
+  }, [user, navigate]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess) {
+      toast.success("Vous êtes connecté");
+    }
     dispatch(reset());
-  }, [isError, isSuccess, user, message, navigate, dispatch]);
+  }, [isError, isSuccess, message, dispatch]);
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const { email, password } = formData;
     if (!email) {
       toast.error("Vous devez entrer votre email !");
     }
     if (!password) {
-      toast.error("Merci d'entrez un mot de passe !");
+      toast.error("Merci d'entrer un mot de passe !");
     }
-    const userData = {
-      email,
-      password,
-    };
-
-    dispatch(login(userData));
+    dispatch(login(formData));
   };
 
   const { email, password } = formData;
@@ -76,67 +76,53 @@ function Login() {
 
   return (
     <>
-      {user ? (
-        <>
-          <section className="heading">
-            Bienvenue sur DATA PILOT !
-          </section>
-          <Link className="btn " to={"/private/home"}>
-            Commencer
-          </Link>
+      <section className="heading">
+        <h2>Connectez-vous pour commencer.</h2>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab
+          ducimus deleniti laborum iste similique accusamus consequuntur
+          totam ex dolorum!
+        </p>
+      </section>
 
-        </>
-      ) : (
-        <>
-          <section className="heading">
-            <h2>Connecter vous pour commencer.</h2>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab
-              ducimus deleniti laborum iste similique accusamus consequuntur
-              totam ex dolorum!
-            </p>
-          </section>
-
-          <div className="form-login-container">
-            <div className="form-img-container">
-              <img src={homeImg} alt="" />
+      <div className="form-login-container">
+        <div className="form-img-container">
+          <img src={homeImg} alt="" />
+        </div>
+        <section className="form">
+          <h1>
+            <FaSignInAlt /> Se connecter
+          </h1>
+          <form onSubmit={onSubmit}>
+            <div className="form-group">
+              <input
+                className="form-control"
+                name="email"
+                type="mail"
+                id="email"
+                value={email}
+                onChange={onChange}
+                placeholder="Entrer votre email"
+              />
             </div>
-            <section className="form">
-              <h1>
-                <FaSignInAlt /> Ce connecter
-              </h1>
-              <form onSubmit={onSubmit}>
-                <div className="form-group">
-                  <input
-                    className="form-control"
-                    name="email"
-                    type="mail"
-                    id="email"
-                    value={email}
-                    onChange={onChange}
-                    placeholder="Entrer votre email"
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    className="form-control"
-                    name="password"
-                    type="password"
-                    id="password"
-                    value={password}
-                    autocomplete="new-password"
-                    onChange={onChange}
-                    placeholder="Entrer votre mot de passe"
-                  />
-                </div>
-                <div className="form-group">
-                  <button className=" btn btn-block">Ce connecter</button>
-                </div>
-              </form>
-            </section>
-          </div>
-        </>
-      )}
+            <div className="form-group">
+              <input
+                className="form-control"
+                name="password"
+                type="password"
+                id="password"
+                value={password}
+                autoComplete="new-password"
+                onChange={onChange}
+                placeholder="Entrer votre mot de passe"
+              />
+            </div>
+            <div className="form-group">
+              <button className="btn btn-block">Se connecter</button>
+            </div>
+          </form>
+        </section>
+      </div>
     </>
   );
 }
