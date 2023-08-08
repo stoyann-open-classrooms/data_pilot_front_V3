@@ -7,6 +7,7 @@ import Ticket from '../../../../components/shared/ticket/Ticket';
 import Modal from '../../../../components/shared/modal/Modal';
 import { Link } from 'react-router-dom';
 import BigTitle from '../../../../components/shared/BigTitle/BigTitle';
+import Spinner from '../../../../components/shared/spinner/Spinner';
 
 function AdminTablesList() {
   const { tables, isLoading, isError, message } = useSelector((state) => state.table);
@@ -69,7 +70,7 @@ console.log(tables);
   }, [dispatch, isError, message]);
 
   if (isLoading || !filteredTables) {
-    return <h1>CHARGEMENT ....</h1>;
+    return <Spinner/>;
   }
 
   if (isError) {

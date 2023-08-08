@@ -180,7 +180,7 @@ function AdminTable() {
   return (
     <>
       <BackButton url={"/admin/tables"} />
-      <BigTitle title={table.data.name} />
+      <BigTitle title={table.data.name} subtitle={table.data.description} />
 
       <button onClick={openNewLineModal} className="btn">
         Ajouter une nouvelle ligne
