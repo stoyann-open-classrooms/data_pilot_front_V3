@@ -14,11 +14,10 @@ function PermissionTable({ table }) {
        // Récupérer le client du local storage
   const userCustomer = JSON.parse(localStorage.getItem('userCustomer'));
 
-
  // Filtrer les utilisateurs qui ont le même client que celui du local storage
- const filteredUsers = users.data.filter(
-   (user) => user.customer === userCustomer
- );
+ const filteredUsers = users.data
+ ? users.data.filter((user) => user.customer === userCustomer)
+ : [];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({

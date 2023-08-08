@@ -123,7 +123,7 @@ export const authorizationSlice = createSlice({
       .addCase(updateAuthorization.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.authorizations = state.authorizations.map((authorization) =>
+        state.authorizations= state.authorizations.data.map((authorization) =>
           authorization.id === action.payload.id
             ? action.payload
             : authorization
@@ -140,7 +140,7 @@ export const authorizationSlice = createSlice({
       .addCase(deleteAuthorization.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.authorizations = state.authorizations.filter(
+        state.authorizations = state.authorizations.data.filter(
           (authorization) => authorization.id !== action.payload
         );
       })

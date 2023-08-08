@@ -24,6 +24,7 @@ import SuperAdminUsersList from "./pages/Private/PrivateSuperAdmin/SuperAdminUse
 import AdminUsersList from "./pages/Private/PrivateAdmin/AdminUsersList/AdminUsersList";
 import AdminTablesList from "./pages/Private/PrivateAdmin/AdminTablesList/AdminTablesList";
 import AdminTable from "./pages/Private/PrivateAdmin/AdminTable/AdminTable";
+import AutorizedTableUserList from "./pages/Private/PrivateAdmin/AutorizedTableUserList/AutorizedTableUserList";
 
 // PRIVATE PAGES COMPONENTS
 
@@ -43,6 +44,7 @@ function App() {
               <Route path="/admin/users" element={<AdminUsersList />} />
               <Route path="/admin/tables" element={<AdminTablesList />} />
               <Route path="/admin/table/:id" element={<AdminTable />} />
+              <Route path="/admin/autorized-user/table/:id" element={<AutorizedTableUserList />} />
             </Route>
 
             <Route path="/user" element={<UserRoute />}>
