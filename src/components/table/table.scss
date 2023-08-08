@@ -22,4 +22,24 @@
   }
   
 
-  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $primary; /* Couleur de l'icône */
+    font-size: 1.9rem; /* Taille de l'icône */
+    padding: 5px;
+    margin: 0 3px;
+    transition: color 0.3s ease;
+  }
+  .delete{
+    color: $danger;
+  }
+  .icon-button:hover {
+    color: $secondary; /* Couleur de l'icône au survol */
+  }
+
+  .action-container{
+    display: flex;
+    justify-content: space-around;
+  }

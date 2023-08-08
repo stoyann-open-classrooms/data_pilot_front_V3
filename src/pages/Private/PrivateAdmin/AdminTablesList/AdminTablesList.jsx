@@ -57,7 +57,7 @@ function AdminTablesList() {
 
   // Filtrer les tableaux en fonction du client connecté
   const filteredTables = tables.data ? tables.data.filter((table) => table.customer === loggedInUserClientId) : [];
-
+console.log(tables);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -89,18 +89,18 @@ function AdminTablesList() {
       <div className="ticket-headings">
         <div>Nom du tableau</div>
         <div>Nombre de colonnes</div>
+        <div>Types de tableau</div>
         
         <div>Créer le</div>
         <div>Derniere modification</div>
       </div>
 
       {filteredTables.map((table) => (
-        <Link key={table.id} to={`/admin/table/${table.id}`}>
+        <Link key={table._id} to={`/admin/table/${table.id}`}>
         <Ticket >
           <div>{table.name}</div>
           <div>{table.columns.length}</div>
- 
-    
+          <div>{table.type}</div>
           <div>{new Date(table.createdAt).toLocaleDateString()}</div>
           <div>{new Date(table.updatedAt).toLocaleDateString()}</div>
         </Ticket>

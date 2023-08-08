@@ -1,5 +1,6 @@
 import React from 'react';
 import './table.css';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 
 function Table({ columns, rows, onEdit, onDelete }) {
   return (
@@ -14,14 +15,18 @@ function Table({ columns, rows, onEdit, onDelete }) {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row, rowIndex) => (
+          {Array.isArray(rows) && rows.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {columns.map((column, colIndex) => (
-                <td key={colIndex}>{row[column]}</td>
+                <td key={colIndex}>
+                  {column === 'Date de début' ? new Date(row.dateStart).toLocaleDateString()  :
+                   column === 'Date de fin' ? new Date(row.dateEnd).toLocaleDateString():
+                   row[`data_${colIndex + 1}`] && row[`data_${colIndex + 1}`][0]}
+                </td>
               ))}
-              <td>
-                <button onClick={() => onEdit(row)}>Modifier</button>
-                <button onClick={() => onDelete(row)}>Supprimer</button>
+              <td className='action-container'>
+                <button className="icon-button" onClick={() => onEdit(row)}><FaEdit /></button>
+                <button className="icon-button delete" onClick={() => onDelete(row)}><FaTrash /></button>
               </td>
             </tr>
           ))}

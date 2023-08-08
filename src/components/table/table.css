@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,100;1,300&display=swap");
 * {
   margin: 0;
@@ -12,8 +13,8 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  background-color: #030E21;
-  color: #FFFFFF;
+  background-color: #030e21;
+  color: #ffffff;
 }
 
 a {
@@ -57,4 +58,28 @@ h3 {
 .table thead {
   background-color: #6E3B15;
   text-align: center;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #b9a720; /* Couleur de l'icône */
+  font-size: 1.9rem; /* Taille de l'icône */
+  padding: 5px;
+  margin: 0 3px;
+  transition: color 0.3s ease;
+}
+
+.delete {
+  color: #AB1E01;
+}
+
+.icon-button:hover {
+  color: #6E3B15; /* Couleur de l'icône au survol */
+}
+
+.action-container {
+  display: flex;
+  justify-content: space-around;
 }/*# sourceMappingURL=table.css.map */

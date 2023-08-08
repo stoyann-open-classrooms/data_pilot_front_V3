@@ -12,8 +12,8 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  background-color: #030E21;
-  color: #FFFFFF;
+  background-color: #030e21;
+  color: #ffffff;
 }
 
 a {
@@ -416,8 +416,9 @@ footer {
 }
 
 .noData {
-  font-size: 1.5rem;
-  color: RED;
+  font-size: 2rem;
+  color: #AB1E01;
+  font-weight: bolder;
   text-align: center;
   margin-bottom: 2rem;
 }/*# sourceMappingURL=index.css.map */
