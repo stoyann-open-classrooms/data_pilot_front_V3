@@ -7,6 +7,7 @@ import { BackButton } from "../../../../components/shared/BackButton";
 import Ticket from "../../../../components/shared/ticket/Ticket";
 import Modal from "../../../../components/shared/modal/Modal";
 import { createUser } from "../../../../features/user/userSlice";
+import BigTitle from '../../../../components/shared/BigTitle/BigTitle';
 
 function AdminUsersList() {
   const { users, isLoading, isError, message } = useSelector((state) => state.user);
@@ -81,8 +82,9 @@ function AdminUsersList() {
     <>
       <section className="headings">
         <BackButton url={"/admin/home"} />
-        <h1>Gestion des utilisateurs</h1>
-        <button onClick={openNewUserModal} className="btn">
+        <h1></h1>
+        <BigTitle title={"Gestion des utilisateurs"} subtitle={"Ajoutez, supprimez ou modifiez l'un de vos utilisateurs. Lors de la création d'un compte, l'utilisateur est informé par email et reçoit ses identifiants, qu'il pourra ensuite modifier."} />
+        <button onClick={openNewUserModal} className="btn btn-block btn-danger">
           Ajouter un nouveau utilisateur
         </button>
       </section>

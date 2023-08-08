@@ -6,6 +6,7 @@ import { BackButton } from '../../../../components/shared/BackButton';
 import Ticket from '../../../../components/shared/ticket/Ticket';
 import Modal from '../../../../components/shared/modal/Modal';
 import { Link } from 'react-router-dom';
+import BigTitle from '../../../../components/shared/BigTitle/BigTitle';
 
 function AdminTablesList() {
   const { tables, isLoading, isError, message } = useSelector((state) => state.table);
@@ -80,8 +81,9 @@ console.log(tables);
       <section className="headings">
         <BackButton url={'/admin/home'} />
 
-        <h1>Gestion des tableaux</h1>
-        <button onClick={openNewTableModal} className="btn">
+        <BigTitle title={"Gestion de vos tableaux"} subtitle={"Créez, modifiez ou supprimez un tableau. Une fois créé, vous pourrez assigner des droits en lecture ou en écriture à vos utilisateurs."} />
+        
+        <button onClick={openNewTableModal} className="btn btn-block btn-danger">
         Ajouter un nouveau tableau
       </button>
       </section>
@@ -90,22 +92,21 @@ console.log(tables);
         <div>Nom du tableau</div>
         <div>Nombre de colonnes</div>
         <div>Types de tableau</div>
-        
         <div>Créer le</div>
         <div>Derniere modification</div>
       </div>
 
       {filteredTables.map((table) => (
-        <Link key={table._id} to={`/admin/table/${table.id}`}>
-        <Ticket >
-          <div>{table.name}</div>
-          <div>{table.columns.length}</div>
-          <div>{table.type}</div>
-          <div>{new Date(table.createdAt).toLocaleDateString()}</div>
-          <div>{new Date(table.updatedAt).toLocaleDateString()}</div>
-        </Ticket>
-        </Link>
-      ))}
+  <Link key={table._id} to={`/admin/table/${table.id}`}>
+    <Ticket>
+      <div>{table.name}</div>
+      <div>{table.columns.length}</div>
+      <div>{table.type}</div>
+      <div>{new Date(table.createdAt).toLocaleDateString()}</div>
+      <div>{new Date(table.updatedAt).toLocaleDateString()}</div>
+    </Ticket>
+  </Link>
+))}
 
 
         
