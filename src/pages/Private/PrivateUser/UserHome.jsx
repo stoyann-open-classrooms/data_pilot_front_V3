@@ -8,10 +8,15 @@ function UserHome() {
       <h1>Bienvenue sur votre espace DATA PILOT BY SQUARE</h1>
     </section>
     <section>
-    <Link className="btn" to={'/'}>
-       Acceder a mes Tableaux
+       <Link className="btn" to={'/user/tables'}>
+       Mes Tableaux
       </Link>
-    
+       <Link className="btn" to={'/user/rapports'}>
+       Mes Rapports
+      </Link>
+       <Link className="btn" to={'/user/parameters'}>
+       Paramétres
+      </Link>
     </section>
   </>
   )

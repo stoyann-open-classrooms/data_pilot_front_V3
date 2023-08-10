@@ -177,6 +177,7 @@ function AdminTable() {
     return <h3>Une erreur est survenue, merci de réessayer.</h3>;
   }
 
+  
   return (
     <>
       <BackButton url={"/admin/tables"} />

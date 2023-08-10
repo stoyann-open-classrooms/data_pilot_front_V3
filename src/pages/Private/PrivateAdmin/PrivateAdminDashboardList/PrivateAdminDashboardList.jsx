@@ -1,12 +1,12 @@
-import React from 'react'
-import BigTitle from '../../../../components/shared/BigTitle/BigTitle'
+import React from "react";
+import BigTitle from "../../../../components/shared/BigTitle/BigTitle";
 
 function PrivateAdminDashboardList() {
   return (
     <>
-    <BigTitle title={"Mes rapports"}/>
+      <BigTitle title={"Mes rapports"} />
     </>
-  )
+  );
 }
 
-export default PrivateAdminDashboardList
+export default PrivateAdminDashboardList;

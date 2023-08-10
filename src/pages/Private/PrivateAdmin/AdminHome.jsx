@@ -14,7 +14,7 @@ function AdminHome() {
     <Link className="btn" to={'/admin/tables'}>
         Mes tableaux
       </Link>
-    <Link className="btn" to={'/admin/dashbord'}>
+    <Link className="btn" to={'/admin/rapports'}>
         Mes Rapports
       </Link>
     

@@ -24,7 +24,7 @@ function AdminTablesList() {
     name: "",
     description: "",
     type: "",
-    columns: Array(5).fill(''),
+    columns: [], // Initialisez avec un tableau vide
   });
   const openNewTableModal = () => setIsNewTableModalOpen(true);
   const closeNewTableModal = () => setIsNewTableModalOpen(false);
@@ -37,9 +37,15 @@ function AdminTablesList() {
     });
   };
   const handleColumnChange = (index, value) => {
+    if (value) {
+      newTableData.columns[index] = value;
+    } else {
+      delete newTableData.columns[index];
+    }
+  
     setNewTableData({
       ...newTableData,
-      columns: newTableData.columns.map((col, colIndex) => (colIndex === index ? value : col)),
+      columns: [...newTableData.columns.filter(Boolean)],
     });
   };
   const handleNewTableSubmit = (e) => {
@@ -155,13 +161,15 @@ console.log(tables);
   <div className="form-group">
     <label>Colonnes</label>
     {Array.from({ length: 5 }).map((_, index) => (
-      <input
-        type="text"
-        name={`column${index}`}
-        onChange={(e) => handleColumnChange(index, e.target.value)}
-        placeholder={`Colonne ${index + 1}`}
-      />
-    ))}
+  <input
+    type="text"
+    name={`column${index}`}
+    onChange={(e) => handleColumnChange(index, e.target.value)}
+    placeholder={`Colonne ${index + 1}`}
+    value={newTableData.columns[index] || ""}
+  />
+))}
+
   </div>
 
   <div className="form-group">

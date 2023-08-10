@@ -37,10 +37,10 @@ function AutorizedTableUserList() {
   }, [dispatch, isError, message]);
 
   const filteredAuthorizations = authorizations.data
-    ? authorizations.data.filter(
-        (auto) => String(auto.tableau._id) === params.id
-      )
-    : [];
+  ? authorizations.data.filter(
+      (auto) => auto.tableau && String(auto.tableau._id) === params.id
+    )
+  : [];
 
   const handleEdit = (id) => {
     const authorizationToEdit = authorizations.data.find(

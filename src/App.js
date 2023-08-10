@@ -26,6 +26,12 @@ import AdminTablesList from "./pages/Private/PrivateAdmin/AdminTablesList/AdminT
 import AdminTable from "./pages/Private/PrivateAdmin/AdminTable/AdminTable";
 import AutorizedTableUserList from "./pages/Private/PrivateAdmin/AutorizedTableUserList/AutorizedTableUserList";
 import PrivateAdminDashboardList from "./pages/Private/PrivateAdmin/PrivateAdminDashboardList/PrivateAdminDashboardList";
+import AdminRapportList from "./pages/Private/PrivateAdmin/AdminRapportList/AdminRapportList";
+import AdminRapportDetail from "./pages/Private/PrivateAdmin/AdminRapportDetails/AdminRapportDetail";
+import SuperAdminPostRapport from "./pages/Private/PrivateSuperAdmin/SuperAdminPostRapport/SuperAdminPostRapport";
+import PrivateUserTables from "./pages/Private/PrivateUser/PrivateUserTables/PrivateUserTables";
+import PrivateUserRapports from "./pages/Private/PrivateUser/PrivateUserRapports/PrivateUserRapports";
+import PrivateUserInfos from "./pages/Private/PrivateUser/PrivateUserInfos/PrivateUserInfos";
 
 // PRIVATE PAGES COMPONENTS
 
@@ -47,11 +53,16 @@ function App() {
               <Route path="/admin/table/:id" element={<AdminTable />} />
               <Route path="/admin/dashbord" element={<PrivateAdminDashboardList />} />
               <Route path="/admin/autorized-user/table/:id" element={<AutorizedTableUserList />} />
+              <Route path="/admin/rapports" element={<AdminRapportList/>} />
+              <Route path="/admin/rapport/:id" element={<AdminRapportDetail/>} />
             </Route>
 
             <Route path="/user" element={<UserRoute />}>
               {/* Routes accessibles uniquement aux utilisateurs ici */}
               <Route path="/user/home" element={<UserHome />} />
+              <Route path="/user/tables" element={<PrivateUserTables/>} />
+              <Route path="/user/rapports" element={<PrivateUserRapports/>} />
+              <Route path="/user/parameters" element={<PrivateUserInfos/>} />
             </Route>
 
             <Route path="/superAdmin" element={<SuperAdminRoute />}>
@@ -64,6 +75,10 @@ function App() {
               <Route
                 path="/superAdmin/users"
                 element={<SuperAdminUsersList />}
+              />
+              <Route
+                path="/superAdmin/post-rapport"
+                element={<SuperAdminPostRapport/>}
               />
             </Route>
           </Routes>
