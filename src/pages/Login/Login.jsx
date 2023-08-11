@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { FaSignInAlt } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { login, reset } from "../../features/auth/authSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import homeImg from "../../assets/home-img.jpeg";
 import "./login.css";
 
@@ -121,6 +121,11 @@ function Login() {
               <button className="btn btn-block">Se connecter</button>
             </div>
           </form>
+          <div className="forgot-password">
+          <Link to={'/forgot-password'}>Mot de passe oublié ?</Link>
+
+          </div>
+
         </section>
       </div>
     </>

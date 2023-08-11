@@ -143,7 +143,7 @@ export const lineSlice = createSlice({
         console.log('state before update:', state);
         state.isLoading = false;
         state.isSuccess = true;
-        state.lines = state.lines.map((line) =>
+        state.lines = state.lines((line) =>
           line.id === action.payload.id ? action.payload : line
         );
       })

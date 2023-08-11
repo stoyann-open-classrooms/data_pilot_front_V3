@@ -32,6 +32,9 @@ import SuperAdminPostRapport from "./pages/Private/PrivateSuperAdmin/SuperAdminP
 import PrivateUserTables from "./pages/Private/PrivateUser/PrivateUserTables/PrivateUserTables";
 import PrivateUserRapports from "./pages/Private/PrivateUser/PrivateUserRapports/PrivateUserRapports";
 import PrivateUserInfos from "./pages/Private/PrivateUser/PrivateUserInfos/PrivateUserInfos";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import ResetPassword from "./pages/ForgotPassword/ResetPassword";
+import PrivateUserTable from "./pages/Private/PrivateUser/PrivateUserTable/PrivateUserTable";
 
 // PRIVATE PAGES COMPONENTS
 
@@ -44,6 +47,8 @@ function App() {
           <Header />
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword/>} />
+            <Route path="/reset-password/:token" element={<ResetPassword/>} />
 
             <Route path="/admin" element={<AdminRoute />}>
               {/* Routes accessibles uniquement aux admins ici */}
@@ -55,12 +60,14 @@ function App() {
               <Route path="/admin/autorized-user/table/:id" element={<AutorizedTableUserList />} />
               <Route path="/admin/rapports" element={<AdminRapportList/>} />
               <Route path="/admin/rapport/:id" element={<AdminRapportDetail/>} />
+              <Route path="/admin/parameters" element={<PrivateUserInfos/>} />
             </Route>
 
             <Route path="/user" element={<UserRoute />}>
               {/* Routes accessibles uniquement aux utilisateurs ici */}
               <Route path="/user/home" element={<UserHome />} />
               <Route path="/user/tables" element={<PrivateUserTables/>} />
+              <Route path="/user/table/:id" element={<PrivateUserTable/>} />
               <Route path="/user/rapports" element={<PrivateUserRapports/>} />
               <Route path="/user/parameters" element={<PrivateUserInfos/>} />
             </Route>
@@ -81,6 +88,7 @@ function App() {
                 element={<SuperAdminPostRapport/>}
               />
             </Route>
+            <Route path="/superAdmin/parameters" element={<PrivateUserInfos/>} />
           </Routes>
         </div>
         <Footer />

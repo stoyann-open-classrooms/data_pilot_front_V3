@@ -4,6 +4,11 @@ import { getProfil } from "../../../../features/user/userSlice";
 import BigTitle from "../../../../components/shared/BigTitle/BigTitle";
 import { getAuthorizations } from "../../../../features/permission/permissionSlice";
 import Ticket from "../../../../components/shared/ticket/Ticket";
+import Spinner from "../../../../components/shared/spinner/Spinner";
+
+import { FiEye } from 'react-icons/fi';
+import { Link } from "react-router-dom";
+
 
 function PrivateUserTables() {
   const dispatch = useDispatch();
@@ -15,8 +20,9 @@ function PrivateUserTables() {
     dispatch(getAuthorizations());
   }, [dispatch]);
 
-  if (isLoading || !profil.data || !authorizations.data) {
-    return <h1>Chargement...</h1>;
+  if (isLoading || !profil || !profil.data || !authorizations || !authorizations.data) {
+
+    return <Spinner/>;
   }
 
   if (isError) {
@@ -25,7 +31,7 @@ function PrivateUserTables() {
 
   console.log("Authorizations avant filtrage:", authorizations.data);
 
-  const userAuthorizations = authorizations.data
+  const userAuthorizations = authorizations && authorizations.data
   ? authorizations.data.filter(
       (auto) => auto.user && auto.user._id === (profil.data && profil.data._id)
     )
@@ -46,12 +52,14 @@ function PrivateUserTables() {
 
 
     {userAuthorizations.map((auth) => (
-      <Ticket key={auth._id}>
+      <Link key={auth._id} to={`/user/table/${auth.tableau._id}`}>
+      <Ticket >
         <div>{auth.tableau.name}</div> {/* Assurez-vous que "auth.tableau.title" est la propriété correcte */}
         <div>{new Date(auth.tableau.createdAt).toLocaleDateString()}</div>
         <div>{new Date(auth.tableau.updatedAt).toLocaleDateString()}</div>
-        
+    
       </Ticket>
+      </Link>
     ))}
   </>
 

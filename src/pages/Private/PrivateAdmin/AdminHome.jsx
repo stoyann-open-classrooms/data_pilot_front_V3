@@ -17,6 +17,9 @@ function AdminHome() {
     <Link className="btn" to={'/admin/rapports'}>
         Mes Rapports
       </Link>
+    <Link className="btn" to={'/admin/parameters'}>
+        Parametres
+      </Link>
     
     </section>
   </>

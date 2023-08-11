@@ -16,7 +16,8 @@ function PrivateUserRapports() {
     dispatch(getPermissions());
   }, [dispatch]);
 
-  if (isLoading || !profil.data || !permissions.data) {
+  if (isLoading || !profil || !profil.data || !permissions || !permissions.data) {
+
     return <h1>Chargement...</h1>;
   }
 
@@ -24,12 +25,10 @@ function PrivateUserRapports() {
     return <h3>Une erreur s'est produite lors du chargement du profil</h3>;
   }
 
-  // Filtrer les permissions basées sur l'ID du profil de l'utilisateur
-  const userPermissions = permissions.data.filter(
-    (permission) => permission.user._id === profil.data._id
-  );
-
-  console.log(userPermissions); // Vous pouvez voir les permissions filtrées dans la console
+  const userPermissions = permissions && permissions.data 
+  ? permissions.data.filter((permission) => permission.user._id === profil.data._id)
+  : [];
+  
 
   return (
     <>

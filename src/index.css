@@ -106,7 +106,7 @@ h3 {
 }
 
 .form {
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -464,4 +464,56 @@ footer {
 .acces-review {
   font-size: 2rem;
   margin: 2rem 0;
+}
+
+.userInfoContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.userInfoContainer h2 {
+  display: flex;
+  color: #b9a720;
+}
+.userInfoContainer h2 span {
+  color: #e6e6e6;
+  margin-left: 2rem;
+}
+
+.message {
+  background-color: rgb(220, 220, 220);
+  padding: 1.2rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  margin-bottom: 3rem;
+}
+
+.message-success {
+  color: green;
+}
+
+.message-error {
+  color: rgb(128, 0, 0);
+}
+
+.container-pass {
+  margin-top: 10rem;
+}
+
+.authorizaton-container {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 2.2rem;
+}
+.authorizaton-container .rignt {
+  margin: 1rem 0;
+  display: flex;
+  font-size: 2rem;
+  justify-content: space-around;
+}
+
+.noAuto {
+  color: red;
+  font-weight: bolder;
 }/*# sourceMappingURL=index.css.map */

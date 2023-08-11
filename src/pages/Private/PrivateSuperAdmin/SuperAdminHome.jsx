@@ -17,6 +17,9 @@ function SuperAdminHome() {
     <Link className="btn" to={'/superAdmin/post-rapport'}>
        Gestion des rapports
       </Link>
+    <Link className="btn" to={'/superAdmin/parameters'}>
+     parametres
+      </Link>
     
     </section>
   </>

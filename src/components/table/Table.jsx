@@ -1,8 +1,8 @@
-import React from 'react';
-import './table.css';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import React from "react";
+import "./table.css";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
-function Table({ columns, rows, onEdit, onDelete }) {
+function Table({ columns, rows, onEdit, onDelete, canEdit }) {
   return (
     <div>
       <table className="table">
@@ -15,21 +15,29 @@ function Table({ columns, rows, onEdit, onDelete }) {
           </tr>
         </thead>
         <tbody>
-          {Array.isArray(rows) && rows.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {columns.map((column, colIndex) => (
-                <td key={colIndex}>
-                  {column === 'Date de début' ? new Date(row.dateStart).toLocaleDateString()  :
-                   column === 'Date de fin' ? new Date(row.dateEnd).toLocaleDateString():
-                   row[`data_${colIndex + 1}`] && row[`data_${colIndex + 1}`][0]}
+          {Array.isArray(rows) &&
+            rows.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {columns.map((column, colIndex) => (
+                  <td key={colIndex}>
+                    {column === "Date de début"
+                      ? new Date(row.dateStart).toLocaleDateString()
+                      : column === "Date de fin"
+                      ? new Date(row.dateEnd).toLocaleDateString()
+                      : row[`data_${colIndex + 1}`] &&
+                        row[`data_${colIndex + 1}`][0]}
+                  </td>
+                ))}
+                <td className="action-container">
+                  {canEdit ? (
+                    <>
+                      <FaEdit onClick={() => onEdit(row)} />
+                      <FaTrash onClick={() => onDelete(row)} />
+                    </>
+                  ) :  <p className="noAuto">Non authorisée</p> }
                 </td>
-              ))}
-              <td className='action-container'>
-                <button className="icon-button" onClick={() => onEdit(row)}><FaEdit /></button>
-                <button className="icon-button delete" onClick={() => onDelete(row)}><FaTrash /></button>
-              </td>
-            </tr>
-          ))}
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
