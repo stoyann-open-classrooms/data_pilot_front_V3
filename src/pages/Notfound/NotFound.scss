@@ -1,0 +1,12 @@
+.not-found-container{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+}
+
+.notFoundTxt{
+    font-size: 2.5rem;
+}

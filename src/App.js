@@ -1,5 +1,6 @@
 // REACT ROUTER
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // PRIVATE OUTLET
@@ -35,6 +36,7 @@ import PrivateUserInfos from "./pages/Private/PrivateUser/PrivateUserInfos/Priva
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/ForgotPassword/ResetPassword";
 import PrivateUserTable from "./pages/Private/PrivateUser/PrivateUserTable/PrivateUserTable";
+import NotFound from "./pages/Notfound/NotFound";
 
 // PRIVATE PAGES COMPONENTS
 
@@ -46,6 +48,7 @@ function App() {
         <div className="container">
           <Header />
           <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword/>} />
             <Route path="/reset-password/:token" element={<ResetPassword/>} />
@@ -89,6 +92,7 @@ function App() {
               />
             </Route>
             <Route path="/superAdmin/parameters" element={<PrivateUserInfos/>} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <Footer />
